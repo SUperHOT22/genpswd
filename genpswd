@@ -1,0 +1,34 @@
+import java.io.IOException;
+import java.util.Random;
+
+public class List_1 {
+    public static void main(String[] args) throws IOException {
+        //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int length = new Random().nextInt();
+        //int length = Integer.parseInt(reader.readLine());
+        System.out.println("Your Password:");
+        for (int i = 0; i < 15; i++) {
+            System.out.print(i + 1 + ")");
+            System.out.println(generatePswd(length));
+        }
+    }
+
+    static char[] generatePswd(int len) {
+        String charsCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String chars = "abcdefghijklmnopqrstuvwxyz";
+        String nums = "0123456789";
+
+
+        String passSymbols = charsCaps + chars + nums;
+
+
+        char[] password = new char[len];
+
+
+        for (int i = 0; i < len; i++) {
+            password[i] = passSymbols.charAt(new Random().nextInt(passSymbols.length()));
+        }
+        return password;
+    }
+
+}
